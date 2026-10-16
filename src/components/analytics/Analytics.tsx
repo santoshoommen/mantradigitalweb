@@ -22,7 +22,7 @@ function chooseConsent(value: "accepted" | "rejected") {
 }
 
 export function Analytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-54RRC0Q4G5";
   const consent = useSyncExternalStore(subscribe, consentSnapshot, () => "pending");
 
   useEffect(() => {
