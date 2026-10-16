@@ -22,7 +22,7 @@ export default function OpenGraphImage() {
         <div style={{ fontSize: 68, lineHeight: 1.05, maxWidth: 900 }}>
           Beautiful websites. Smarter digital solutions.
         </div>
-        <div style={{ fontSize: 28, color: "#8E3144" }}>From £99 a month, excluding VAT · 12-month initial commitment</div>
+        <div style={{ fontSize: 28, color: "#8E3144" }}>Buckinghamshire and the UK · From £99 a month, excluding VAT</div>
       </div>
     ),
     size,

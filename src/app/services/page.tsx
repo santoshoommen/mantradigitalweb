@@ -13,9 +13,9 @@ const artFor: Record<string, string> = {
 };
 
 export const metadata = pageMetadata({
-  title: "Services",
+  title: "Website design and digital solutions",
   description:
-    "Web design, branding and digital solutions from Mantra Digital Magic.",
+    "Web design, branding and digital solutions for companies across the UK, from a studio in Buckinghamshire.",
   path: "/services",
 });
 

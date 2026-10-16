@@ -6,7 +6,8 @@ import { breadcrumbJsonLd, faqJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "FAQ",
-  description: "Straight answers about Mantra's managed website plans and bespoke projects.",
+  description:
+    "Answers on Mantra's managed website plans for UK businesses: prices excluding VAT, the 12-month commitment, CMS access and bespoke quotes.",
   path: "/faq",
 });
 

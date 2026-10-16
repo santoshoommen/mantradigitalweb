@@ -4,13 +4,13 @@ import { CommercialDisclosure, PricingCards, TrustRow } from "@/components/prici
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs, ClosingCta, PageHero } from "@/components/ui/Page";
 import { loadFaqs } from "@/lib/cms";
-import { commercialNotes, comparisonRows, onboardingSteps } from "@/lib/content";
+import { commercialNotes, comparisonRows, onboardingSteps, plans } from "@/lib/content";
 import { breadcrumbJsonLd, pageMetadata, serviceJsonLd } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Managed websites",
+  title: "Managed websites for UK businesses",
   description:
-    "Managed websites from £99, £199 and £399 a month, excluding VAT. No upfront development fee, with a 12-month initial commitment.",
+    "Managed websites for companies across the UK, from £99, £199 and £399 a month, excluding VAT. No upfront development fee, with a 12-month initial commitment. The studio is based in Buckinghamshire.",
   path: "/managed-websites",
 });
 
@@ -28,8 +28,13 @@ export default async function ManagedWebsitesPage() {
           serviceJsonLd({
             title: "Managed websites",
             description:
-              "Professionally designed and hosted websites with monthly care. Plans at £99, £199 and £399 a month, excluding VAT, with a 12-month initial commitment and no upfront development fee.",
+              "Professionally designed and hosted websites for companies across the UK. Plans at £99, £199 and £399 a month, excluding VAT, with a 12-month initial commitment and no upfront development fee.",
             path: "/managed-websites",
+            offers: plans.map((plan) => ({
+              name: plan.name,
+              price: plan.price,
+              description: `${plan.summary} Monthly price excludes VAT. 12-month initial commitment.`,
+            })),
           }),
           faqJsonLdSafe(faqs),
         ]}

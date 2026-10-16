@@ -4,12 +4,12 @@ import { defaultDescription, pageMetadata, siteName } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: `${siteName} — Beautiful websites and digital solutions`,
+    title: `Website design for UK businesses`,
     description: defaultDescription,
     path: "/",
   }),
   title: {
-    absolute: `${siteName} — Beautiful websites and digital solutions`,
+    absolute: `Website design for UK businesses · ${siteName}`,
   },
 };
 

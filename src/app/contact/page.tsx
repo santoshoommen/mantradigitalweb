@@ -5,8 +5,9 @@ import { Breadcrumbs } from "@/components/ui/Page";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Contact",
-  description: "Tell Mantra Digital Magic about your website, brand or digital project.",
+  title: "Contact the studio",
+  description:
+    "Contact Mantra Digital Magic about a website, brand or digital project. The studio is based in Buckinghamshire and works with companies across the UK.",
   path: "/contact",
 });
 

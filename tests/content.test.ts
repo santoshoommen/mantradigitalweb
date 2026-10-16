@@ -10,6 +10,8 @@ import {
   planEnquiryHref,
   plans,
 } from "@/lib/content";
+import { defaultDescription } from "@/lib/seo";
+import { llmsTxt } from "@/lib/llms";
 
 describe("pricing", () => {
   it("shows the three monthly prices", () => {
@@ -93,5 +95,20 @@ describe("routes and legal copy", () => {
     expect(text).not.toMatch(/company number/i);
     expect(text).not.toMatch(/ICO registration/i);
     expect(text).not.toMatch(/solicitor-approved/);
+  });
+});
+
+describe("search descriptions", () => {
+  it("names the UK and Buckinghamshire without promising AI placement", () => {
+    expect(defaultDescription).toMatch(/United Kingdom|UK/);
+    expect(defaultDescription).toMatch(/Buckinghamshire/);
+    const guide = llmsTxt();
+    expect(guide).toMatch(/Buckinghamshire/);
+    expect(guide).toMatch(/United Kingdom/);
+    expect(guide).toMatch(/£99, £199 and £399/);
+    expect(guide).toMatch(/exclude VAT/i);
+    expect(guide).toMatch(/does not guarantee placement/);
+    expect(guide).toMatch(/does not publish a street address, phone number or company number/);
+    expect(guide).not.toMatch(/guaranteed ranking/i);
   });
 });

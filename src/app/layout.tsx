@@ -4,7 +4,7 @@ import { Analytics } from "@/components/analytics/Analytics";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { defaultDescription, getSiteUrl, organizationJsonLd, siteName, websiteJsonLd } from "@/lib/seo";
+import { defaultDescription, getSiteUrl, legalName, organizationJsonLd, siteName, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -31,15 +31,29 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: `${siteName} — Beautiful websites and digital solutions`,
+    default: `Website design for UK businesses · ${siteName}`,
     template: `%s · ${siteName}`,
   },
   description: defaultDescription,
   applicationName: siteName,
+  authors: [{ name: legalName, url: getSiteUrl() }],
+  creator: legalName,
+  publisher: legalName,
+  category: "Web design",
+  formatDetection: { email: false, address: false, telephone: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   openGraph: {
     siteName,
     locale: "en_GB",
     type: "website",
+  },
+  other: {
+    "geo.region": "GB-BKM",
+    "geo.placename": "Buckinghamshire",
   },
 };
 

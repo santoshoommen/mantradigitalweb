@@ -3,9 +3,9 @@ import { Breadcrumbs, ClosingCta, PageHero } from "@/components/ui/Page";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "About",
+  title: "A UK studio based in Buckinghamshire",
   description:
-    "Mantra Digital Magic is a UK studio combining considered design with senior technical delivery.",
+    "Mantra Digital Magic Ltd is a website studio based in Buckinghamshire, working with companies across the UK.",
   path: "/about",
 });
 
@@ -29,7 +29,7 @@ export default function AboutPage() {
       <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 sm:px-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-5 text-base leading-7 text-ink-soft">
           <p>
-            We are a UK studio. The work is for service businesses that need to be found, trusted and chosen — not for a race to the cheapest template. AI-assisted production is an internal way of working. It is not the thing we sell.
+            We are a UK studio based in Buckinghamshire. The work is for companies that need to be found, trusted and chosen — not for a race to the cheapest template. AI-assisted production is an internal way of working. It is not the thing we sell.
           </p>
           <p>
             Clients deal with one team from the first conversation through launch and care. There is no separate sales layer handing you to someone else after the proposal.

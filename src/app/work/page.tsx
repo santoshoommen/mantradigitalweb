@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Our work",
-  description: "Selected websites and digital products from Mantra Digital Magic.",
+  description: "Selected websites and digital products built by Mantra Digital Magic for organisations in the UK.",
   path: "/work",
 });
 

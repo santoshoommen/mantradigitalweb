@@ -4,7 +4,12 @@ export const siteName = "Mantra Digital Magic";
 export const legalName = "Mantra Digital Magic Ltd";
 
 export const defaultDescription =
-  "We design, build and manage websites and web applications that help your business attract customers, streamline operations and grow online.";
+  "Mantra Digital Magic designs, builds and looks after websites for companies across the UK. The studio is based in Buckinghamshire. Managed plans from £99 a month, excluding VAT.";
+
+const areaServed = [
+  { "@type": "Country", name: "United Kingdom" },
+  { "@type": "AdministrativeArea", name: "Buckinghamshire" },
+];
 
 export function getSiteUrl() {
   const raw = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -27,7 +32,13 @@ export function pageMetadata({
     title,
     description,
     alternates: { canonical: path },
-    robots: index ? { index: true, follow: true } : { index: false, follow: true },
+    robots: index
+      ? {
+          index: true,
+          follow: true,
+          googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+        }
+      : { index: false, follow: true },
     openGraph: {
       title,
       description,
@@ -55,11 +66,13 @@ export function organizationJsonLd() {
     url: getSiteUrl(),
     logo: `${getSiteUrl()}/brand/mantra-logo.png`,
     description: defaultDescription,
-    areaServed: {
-      "@type": "Country",
-      name: "United Kingdom",
-    },
+    areaServed,
     slogan: "Your business deserves more than just a website.",
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "Buckinghamshire",
+      addressCountry: "GB",
+    },
     ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 }
@@ -105,7 +118,12 @@ export function faqJsonLd(items: { question: string; answer: string }[]) {
   };
 }
 
-export function serviceJsonLd(service: { title: string; description: string; path: string }) {
+export function serviceJsonLd(service: {
+  title: string;
+  description: string;
+  path: string;
+  offers?: { name: string; price: number; description: string }[];
+}) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -116,6 +134,18 @@ export function serviceJsonLd(service: { title: string; description: string; pat
       "@type": "Organization",
       name: legalName,
     },
-    areaServed: "United Kingdom",
+    areaServed,
+    ...(service.offers
+      ? {
+          offers: service.offers.map((offer) => ({
+            "@type": "Offer",
+            name: offer.name,
+            price: String(offer.price),
+            priceCurrency: "GBP",
+            description: offer.description,
+            url: `${getSiteUrl()}${service.path}`,
+          })),
+        }
+      : {}),
   };
 }

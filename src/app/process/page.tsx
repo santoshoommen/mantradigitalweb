@@ -4,9 +4,9 @@ import { fullProcess } from "@/lib/content";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Process",
+  title: "How a project runs",
   description:
-    "How a Mantra project moves from discovery to launch and care, for managed websites and bespoke work.",
+    "How a Mantra project for a UK business moves from discovery to launch and care, for managed websites and bespoke work.",
   path: "/process",
 });
 
