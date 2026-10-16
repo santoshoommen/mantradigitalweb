@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { budgets, interests, isPlanId, timelines, type PlanId } from "@/lib/content";
-import { reportAdsConversion } from "@/lib/ads";
 import { track } from "@/lib/track";
 import { enquirySchema, fieldErrors } from "@/lib/validation";
 
@@ -118,7 +117,6 @@ export function ContactForm({ initialPlan }: { initialPlan?: string }) {
       }
       setStatus(data.delivery === "logged" ? "logged" : "success");
       track("contact_form_success", { interest: form.interest, plan: form.plan || undefined });
-      reportAdsConversion();
     } catch {
       setStatus("error");
       setFormError("We could not send that. Please try again.");

@@ -1,9 +1,8 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Script from "next/script";
-import { useEffect, useState, useSyncExternalStore } from "react";
-import { adsId, reportAdsConversion } from "@/lib/ads";
+import { useEffect, useSyncExternalStore } from "react";
+import { adsId } from "@/lib/ads";
 import { track } from "@/lib/track";
 
 const storageKey = "mantra-consent";
@@ -23,13 +22,9 @@ function chooseConsent(value: "accepted" | "rejected") {
   listeners.forEach((listener) => listener());
 }
 
-const quietPaths = new Set(["/privacy", "/cookies", "/terms"]);
-
 export function Analytics() {
   const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-54RRC0Q4G5";
-  const pathname = usePathname();
   const consent = useSyncExternalStore(subscribe, consentSnapshot, () => "pending");
-  const [adsReady, setAdsReady] = useState(false);
 
   useEffect(() => {
     function onClick(event: MouseEvent) {
@@ -48,11 +43,6 @@ export function Analytics() {
     return () => document.removeEventListener("click", onClick);
   }, []);
 
-  useEffect(() => {
-    if (!adsReady || consent !== "accepted" || quietPaths.has(pathname)) return;
-    reportAdsConversion();
-  }, [adsReady, consent, pathname]);
-
   function choose(value: "accepted" | "rejected") {
     chooseConsent(value);
   }
@@ -61,13 +51,9 @@ export function Analytics() {
     <>
       {gaId && consent === "accepted" ? (
         <>
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
-          <Script
-            id="ga4"
-            strategy="afterInteractive"
-            onReady={() => setAdsReady(true)}
-          >
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});gtag('config','${adsId}');`}
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${adsId}`} strategy="afterInteractive" />
+          <Script id="google-tags" strategy="afterInteractive">
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${adsId}');gtag('config','${gaId}',{anonymize_ip:true});`}
           </Script>
         </>
       ) : null}

@@ -676,7 +676,7 @@ export const legal = {
           "We use enquiry details to reply, to understand whether a managed website or a bespoke project is the right fit, and to keep a record if we go on to work together. The lawful basis is steps towards a contract, and our legitimate interest in answering a message you sent us.",
           "We use a newsletter address only to send the notes you asked for. The lawful basis is your consent. You can withdraw it by asking us to stop.",
           "We use a hidden form field and a limit on how often the form can be submitted to reduce spam. The lawful basis is our legitimate interest in keeping the site usable.",
-          "If you accept analytics, we use that information to see which pages and calls to action are used, and whether an advert led to a visit or an enquiry. The lawful basis is your consent. If you reject analytics, that measurement does not run.",
+          "If you accept analytics, we use that information to see which pages and calls to action are used, and whether an advert led to a visit. The lawful basis is your consent. If you reject analytics, that measurement does not run.",
           "We do not sell personal information. We do not use it to make automated decisions that have a legal or similarly significant effect on you.",
         ],
       },
@@ -684,7 +684,7 @@ export const legal = {
         heading: "Who we share it with",
         paragraphs: [
           "Enquiry and newsletter messages are emailed to us through our email provider. If a receipt is switched on, that provider also sends you a short note that we received the form. That note is not a booking confirmation.",
-          "If you accept analytics, Google Analytics receives usage information, with IP anonymisation switched on. Google Ads may also receive a record that you visited a page or sent an enquiry.",
+          "If you accept analytics, Google Analytics receives usage information, with IP anonymisation switched on. Google Ads may also receive a record that you visited the site.",
           "Our website host may keep ordinary server logs, such as an IP address and the page requested, so the site can be delivered and protected.",
           "We may share information with a professional adviser, or if the law requires it. We do not pass your details to other businesses so they can market to you.",
         ],
@@ -736,7 +736,7 @@ export const legal = {
         heading: "Analytics cookies",
         paragraphs: [
           "If you accept, we load Google Analytics. It helps us see which pages are visited and which calls to action are used, including a plan chosen from the pricing section. IP anonymisation is switched on. We do not use analytics to identify you by name.",
-          "If you accept, we also load Google Ads conversion measurement. A visit to a public page, including the managed websites page, and a completed contact enquiry can be recorded as a conversion, so we can see whether an advert led there. Google may set a cookie such as _gcl_au.",
+          "If you accept, we also load Google Ads. It records that you visited the site, so we can see whether an advert led here. Google may set a cookie such as _gcl_au.",
           "Google may set cookies such as _ga and a cookie beginning _ga_. Those cookies can last for up to two years. Google's own description of how it uses information from sites is at policies.google.com/technologies/partner-sites.",
         ],
       },
