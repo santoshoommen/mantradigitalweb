@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { useEffect, useSyncExternalStore } from "react";
-import { adsId } from "@/lib/ads";
+import { adsId, gtagReportConversion } from "@/lib/ads";
 import { track } from "@/lib/track";
 
 const storageKey = "mantra-consent";
@@ -42,6 +42,12 @@ export function Analytics() {
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
   }, []);
+
+  useEffect(() => {
+    if (consent !== "accepted") return;
+    (window as Window & { gtag_report_conversion?: typeof gtagReportConversion }).gtag_report_conversion =
+      gtagReportConversion;
+  }, [consent]);
 
   function choose(value: "accepted" | "rejected") {
     chooseConsent(value);
