@@ -644,7 +644,7 @@ export const onboardingSteps = [
 export const legal = {
   privacy: {
     title: "Privacy",
-    updated: "15 October 2026",
+    updated: "16 October 2026",
     intro:
       "This notice explains how Mantra Digital Magic Ltd uses personal information collected through this website. It covers enquiries, occasional notes, and analytics. It does not cover a private client workspace, because this site does not have customer accounts.",
     sections: [
@@ -676,7 +676,7 @@ export const legal = {
           "We use enquiry details to reply, to understand whether a managed website or a bespoke project is the right fit, and to keep a record if we go on to work together. The lawful basis is steps towards a contract, and our legitimate interest in answering a message you sent us.",
           "We use a newsletter address only to send the notes you asked for. The lawful basis is your consent. You can withdraw it by asking us to stop.",
           "We use a hidden form field and a limit on how often the form can be submitted to reduce spam. The lawful basis is our legitimate interest in keeping the site usable.",
-          "If you accept analytics, we use that information to see which pages and calls to action are used. The lawful basis is your consent. If you reject analytics, that measurement does not run.",
+          "If you accept analytics, we use that information to see which pages and calls to action are used, and whether an advert led to a visit or an enquiry. The lawful basis is your consent. If you reject analytics, that measurement does not run.",
           "We do not sell personal information. We do not use it to make automated decisions that have a legal or similarly significant effect on you.",
         ],
       },
@@ -684,7 +684,7 @@ export const legal = {
         heading: "Who we share it with",
         paragraphs: [
           "Enquiry and newsletter messages are emailed to us through our email provider. If a receipt is switched on, that provider also sends you a short note that we received the form. That note is not a booking confirmation.",
-          "If you accept analytics, Google Analytics receives usage information, with IP anonymisation switched on.",
+          "If you accept analytics, Google Analytics receives usage information, with IP anonymisation switched on. Google Ads may also receive a record that you visited a page or sent an enquiry.",
           "Our website host may keep ordinary server logs, such as an IP address and the page requested, so the site can be delivered and protected.",
           "We may share information with a professional adviser, or if the law requires it. We do not pass your details to other businesses so they can market to you.",
         ],
@@ -714,21 +714,21 @@ export const legal = {
       {
         heading: "Cookies",
         paragraphs: [
-          "Cookies and similar storage are explained on the cookie page. Analytics cookies are used only after you accept them.",
+          "Cookies and similar storage are explained on the cookie page. Analytics and advertising cookies are used only after you accept them.",
         ],
       },
     ],
   },
   cookies: {
     title: "Cookies",
-    updated: "15 October 2026",
+    updated: "16 October 2026",
     intro:
-      "This page explains the cookies and similar storage used on this website. You can read the pages without accepting analytics.",
+      "This page explains the cookies and similar storage used on this website. You can read the pages without accepting analytics or advertising cookies.",
     sections: [
       {
         heading: "Your choice",
         paragraphs: [
-          "A banner asks you to accept or reject analytics cookies. The rest of the site works either way. Analytics is loaded only if you accept and a measurement ID is configured.",
+          "A banner asks you to accept or reject analytics and advertising cookies. The rest of the site works either way. Analytics and Google Ads measurement are loaded only if you accept.",
           "Your choice is stored in local storage on your device under the name mantra-consent. That is not a tracking cookie. It exists so we do not ask you on every page. Clear this site's data in your browser if you want the banner to appear again.",
         ],
       },
@@ -736,12 +736,13 @@ export const legal = {
         heading: "Analytics cookies",
         paragraphs: [
           "If you accept, we load Google Analytics. It helps us see which pages are visited and which calls to action are used, including a plan chosen from the pricing section. IP anonymisation is switched on. We do not use analytics to identify you by name.",
+          "If you accept, we also load Google Ads conversion measurement. A visit to a public page, including the managed websites page, and a completed contact enquiry can be recorded as a conversion, so we can see whether an advert led there. Google may set a cookie such as _gcl_au.",
           "Google may set cookies such as _ga and a cookie beginning _ga_. Those cookies can last for up to two years. Google's own description of how it uses information from sites is at policies.google.com/technologies/partner-sites.",
         ],
       },
       {
         heading: "What we do not use",
-        paragraphs: ["This site does not set advertising or social-media cookies, and the contact form does not set a marketing cookie."],
+        paragraphs: ["This site does not set social-media cookies. The contact form does not set its own marketing cookie. Google Ads measurement runs only after you accept."],
       },
       {
         heading: "Browser controls",

@@ -1,7 +1,9 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import Script from "next/script";
-import { useEffect, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { adsId, reportAdsConversion } from "@/lib/ads";
 import { track } from "@/lib/track";
 
 const storageKey = "mantra-consent";
@@ -21,9 +23,13 @@ function chooseConsent(value: "accepted" | "rejected") {
   listeners.forEach((listener) => listener());
 }
 
+const quietPaths = new Set(["/privacy", "/cookies", "/terms"]);
+
 export function Analytics() {
   const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-54RRC0Q4G5";
+  const pathname = usePathname();
   const consent = useSyncExternalStore(subscribe, consentSnapshot, () => "pending");
+  const [adsReady, setAdsReady] = useState(false);
 
   useEffect(() => {
     function onClick(event: MouseEvent) {
@@ -42,6 +48,11 @@ export function Analytics() {
     return () => document.removeEventListener("click", onClick);
   }, []);
 
+  useEffect(() => {
+    if (!adsReady || consent !== "accepted" || quietPaths.has(pathname)) return;
+    reportAdsConversion();
+  }, [adsReady, consent, pathname]);
+
   function choose(value: "accepted" | "rejected") {
     chooseConsent(value);
   }
@@ -51,8 +62,12 @@ export function Analytics() {
       {gaId && consent === "accepted" ? (
         <>
           <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
-          <Script id="ga4" strategy="afterInteractive">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});`}
+          <Script
+            id="ga4"
+            strategy="afterInteractive"
+            onReady={() => setAdsReady(true)}
+          >
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});gtag('config','${adsId}');`}
           </Script>
         </>
       ) : null}
@@ -63,7 +78,7 @@ export function Analytics() {
           className="fixed right-4 bottom-4 left-4 z-50 rounded-2xl border border-line bg-card p-4 shadow-card sm:left-auto sm:max-w-sm"
         >
           <p className="text-sm leading-6 text-ink-soft">
-            We use analytics cookies only if you agree. The rest of the site works either way.{" "}
+            We use analytics and advertising cookies only if you agree. The rest of the site works either way.{" "}
             <a href="/cookies" className="text-plum underline">
               Cookie details
             </a>
