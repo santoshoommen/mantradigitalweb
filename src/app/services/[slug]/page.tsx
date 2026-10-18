@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { TrackView } from "@/components/analytics/Analytics";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs, ClosingCta } from "@/components/ui/Page";
+import { ClientQuote } from "@/components/work/ChilternStory";
 import { loadCaseStudies, loadServices } from "@/lib/cms";
+import { chilternStory } from "@/lib/content";
 import { breadcrumbJsonLd, pageMetadata, serviceJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -75,7 +77,35 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <li key={item}>{item}</li>
           ))}
         </ul>
-        {related ? (
+        {service.slug === "web-design-development" ? (
+          <div className="mt-10">
+            <h2 className="font-serif text-2xl text-ink">What one clinic reported</h2>
+            <p className="mt-3 text-sm leading-7 text-ink-soft">
+              At Chiltern Wellbeing Foot & Ankle Clinic, people reached the booking page and then left. The booking step sent them to a separately branded page. The new site keeps booking inside the practice: about three clicks, and only the essential details. Funmi Obi reports 72 new patients in August and 75 in September, up from around 52 a month. That is her account of one clinic. It is not a promise that another website will produce the same result.
+            </p>
+            <div className="mt-6">
+              <ClientQuote quote={chilternStory.quotes.website} />
+            </div>
+            <p className="mt-6 text-sm leading-7 text-ink-soft">
+              <Link href="/work/chiltern-wellbeing" className="text-plum">
+                Read the full account
+              </Link>
+            </p>
+          </div>
+        ) : null}
+        {service.slug === "digital-solutions" ? (
+          <div className="mt-10">
+            <h2 className="font-serif text-2xl text-ink">Booking that stays on the site</h2>
+            <p className="mt-3 text-sm leading-7 text-ink-soft">
+              Chiltern Wellbeing’s patients were leaving at the booking step because it opened a separately branded page. The replacement is an integrated booking system of about three clicks, asking only for essential information.{" "}
+              <Link href="/work/chiltern-wellbeing" className="text-plum">
+                The clinic’s account is on the case study
+              </Link>
+              .
+            </p>
+          </div>
+        ) : null}
+        {related && service.slug !== "web-design-development" ? (
           <p className="mt-10 text-sm leading-7 text-ink-soft">
             Related work:{" "}
             <Link href={`/work/${related.slug}`} className="text-plum">

@@ -408,27 +408,48 @@ export type CaseStudy = {
   services: string[];
   published: boolean;
   website?: string;
+  result?: string;
   permissionNote: string;
+};
+
+export const chilternStory = {
+  name: "Funmi Obi",
+  role: "Founder and CEO, Chiltern Wellbeing Foot & Ankle Clinic, Hayes",
+  quotes: {
+    people: "It is rare for a web designer to start with the people rather than the template, and it shows.",
+    website:
+      "I attribute this directly to the new website, which is fast, clear and professional, and which I can easily edit myself as a non-technical CEO.",
+    recommend:
+      "For any healthcare provider whose website is not delivering what their practice deserves, I highly recommend Santosh and Mantra.",
+  },
+  letter: [
+    "Our new patient numbers had plateaued at between 48 and 52 a month. A Google Ads partnership added only two or three more, and a Google Analytics deep dive revealed why: critical errors, slow-loading pages and broken links.",
+    "That is when we partnered with Santosh at Mantra. In our opening meeting, he took the time to understand our clinic, our team and our goals, including my aim of attracting our ideal patient. It is rare for a web designer to start with the people rather than the template, and it shows.",
+    "Santosh quickly diagnosed the problem. Our fonts, colours and layout were not building the trust patients look for in a healthcare provider, and many people reached our booking page and then abandoned it. Sending them to a separately branded page broke their trust and flow at the moment they were ready to commit. His solution was an integrated booking system that takes about three clicks and asks only for essential information, so booking is calm and effortless.",
+    "The results have been decisive. Since launching in August, we welcomed 72 new patients in August and 75 in September, up from around 52 a month. These are our highest new patient numbers in the five years since we opened, and they delivered our highest monthly revenue to date. We are also attracting more of the specialist patients we set out to reach. I attribute this directly to the new website, which is fast, clear and professional, and which I can easily edit myself as a non-technical CEO.",
+    "For any healthcare provider whose website is not delivering what their practice deserves, I highly recommend Santosh and Mantra. I am sincerely grateful for the work he has done for our clinic.",
+  ],
 };
 
 export const caseStudies: CaseStudy[] = [
   {
     slug: "chiltern-wellbeing",
     title: "Chiltern Wellbeing",
-    client: "Chiltern Wellbeing",
+    client: "Chiltern Wellbeing Foot & Ankle Clinic",
     cardLabel: "Healthcare website with online booking",
+    result: "72 new patients in August and 75 in September, up from around 52 a month",
     summary:
-      "A calm, professional website for a wellbeing practice, with a clear path to enquire or book.",
+      "A website for Chiltern Wellbeing Foot & Ankle Clinic in Hayes. After launch in August, the clinic welcomed 72 new patients that month and 75 in September, up from around 52 a month.",
     challenge:
-      "People looking for support needed to understand the practice quickly and find a straightforward way to get in touch.",
+      "New patient numbers had levelled off at between 48 and 52 a month. A Google Ads partnership added only two or three more. The site had critical errors, slow pages and broken links. Fonts, colours and layout were not building the trust patients look for, and the booking step sent people to a separately branded page.",
     approach:
-      "We shaped the site around reassurance and clarity: what the practice offers, who it is for, and how to book or enquire.",
+      "The opening meeting was about the clinic, the team and the patients they wanted to attract. The work then followed that: a site that feels like the practice, and a booking path that stays inside it.",
     solution:
-      "A responsive marketing website with a booking-led call to action. Any live booking connection is scoped to the practice's existing provider.",
+      "The site launched in August with an integrated booking system of about three clicks, asking only for essential information. Funmi Obi, the founder and CEO, can edit it herself. The clinic welcomed 72 new patients in August and 75 in September, the highest new-patient numbers in the five years since it opened, and its highest monthly revenue to date. She attributes that to the new website. These figures are her account of the clinic’s own records. They are not a forecast for another practice.",
     tags: ["Web Design", "Digital Experience"],
-    services: ["web-design-development"],
+    services: ["web-design-development", "digital-solutions"],
     published: true,
-    permissionNote: "Homepage screenshots were supplied for the public site.",
+    permissionNote: "Funmi Obi approved this account, and the homepage screenshots, for the public site.",
   },
   {
     slug: "cook-local",

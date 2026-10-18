@@ -19,7 +19,7 @@ The site does not publish a street address, phone number or company number.
 - [Web design and development](${page("/services/web-design-development")}): Marketing sites built around the job the business needs done.
 - [Branding and design](${page("/services/branding-design")}): Visual direction for the website and the materials already in use.
 - [Digital solutions](${page("/services/digital-solutions")}): Bookings, payments, portals and focused web applications.
-- [Our work](${page("/work")}): Chiltern Wellbeing, Cook Local and OnlineArtz.
+- [Our work](${page("/work")}): Chiltern Wellbeing, Cook Local and OnlineArtz. Funmi Obi, founder of Chiltern Wellbeing Foot & Ankle Clinic in Hayes, reports 72 new patients in August and 75 in September after the new website launched, up from around 52 a month. She attributes that result to the website. It is her account of the clinic, not a forecast for another business.
 - [About](${page("/about")}): A UK studio based in Buckinghamshire.
 - [Process](${page("/process")}): How a project moves from discovery to launch and care.
 - [FAQ](${page("/faq")}): Commitment, VAT, CMS access and bespoke quotes.

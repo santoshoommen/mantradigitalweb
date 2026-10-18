@@ -27,7 +27,7 @@ export default async function WorkPage() {
       <PageHero
         eyebrow="Our work"
         title="Real projects. Real results."
-        lede="Websites and products we have designed and built, across healthcare, food and online marketplaces."
+        lede="Websites and products we have designed and built, across healthcare, food and online marketplaces. Chiltern Wellbeing reported 72 new patients in August and 75 in September after launch, up from around 52 a month."
       />
       <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8">
         <WorkGrid projects={projects} />

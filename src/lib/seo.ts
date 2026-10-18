@@ -103,6 +103,24 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   };
 }
 
+export function reviewJsonLd(review: { body: string; author: string; jobTitle: string; itemName: string; path: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    reviewBody: review.body,
+    author: {
+      "@type": "Person",
+      name: review.author,
+      jobTitle: review.jobTitle,
+    },
+    itemReviewed: {
+      "@type": "WebSite",
+      name: review.itemName,
+      url: `${getSiteUrl()}${review.path}`,
+    },
+  };
+}
+
 export function faqJsonLd(items: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",

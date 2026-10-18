@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   articles,
   caseStudies,
+  chilternStory,
   commercialNotes,
   comparisonRows,
   legal,
@@ -95,6 +96,20 @@ describe("routes and legal copy", () => {
     expect(text).not.toMatch(/company number/i);
     expect(text).not.toMatch(/ICO registration/i);
     expect(text).not.toMatch(/solicitor-approved/);
+  });
+});
+
+describe("chiltern account", () => {
+  it("keeps Funmi Obi’s letter intact and treats the figures as her account", () => {
+    const letter = chilternStory.letter.join(" ");
+    expect(letter).toContain("between 48 and 52 a month");
+    expect(letter).toContain("72 new patients in August and 75 in September");
+    expect(letter).toContain(chilternStory.quotes.people);
+    expect(letter).toContain(chilternStory.quotes.website);
+    expect(letter).toContain(chilternStory.quotes.recommend);
+    const chiltern = caseStudies.find((item) => item.slug === "chiltern-wellbeing");
+    expect(chiltern?.solution).toMatch(/not a forecast/);
+    expect(chiltern?.solution).not.toMatch(/\d+%/);
   });
 });
 

@@ -1,5 +1,7 @@
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs, ClosingCta, PageHero } from "@/components/ui/Page";
+import { ClientQuote } from "@/components/work/ChilternStory";
+import { chilternStory } from "@/lib/content";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -44,6 +46,9 @@ export default function AboutPage() {
             <li>A written scope, so monthly minutes are not confused with new features.</li>
           </ul>
           <p className="mt-5 text-sm text-muted">Based in Buckinghamshire. Working with clients across the UK.</p>
+          <div className="mt-6">
+            <ClientQuote quote={chilternStory.quotes.people} />
+          </div>
         </aside>
       </div>
       <ClosingCta />

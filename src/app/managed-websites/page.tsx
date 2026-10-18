@@ -4,7 +4,8 @@ import { CommercialDisclosure, PricingCards, TrustRow } from "@/components/prici
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs, ClosingCta, PageHero } from "@/components/ui/Page";
 import { loadFaqs } from "@/lib/cms";
-import { commercialNotes, comparisonRows, onboardingSteps, plans } from "@/lib/content";
+import { ClientQuote } from "@/components/work/ChilternStory";
+import { chilternStory, commercialNotes, comparisonRows, onboardingSteps, plans } from "@/lib/content";
 import { breadcrumbJsonLd, pageMetadata, serviceJsonLd } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -60,6 +61,12 @@ export default async function ManagedWebsitesPage() {
           <PricingCards cta="enquire" />
           <TrustRow />
           <CommercialDisclosure className="mt-8 max-w-3xl" />
+          <div className="mt-10 max-w-3xl">
+            <ClientQuote quote={chilternStory.quotes.website} />
+            <p className="mt-4 text-sm leading-6 text-muted">
+              Funmi Obi on the Chiltern Wellbeing website. One client’s experience, not a result we promise for every plan.
+            </p>
+          </div>
         </div>
       </section>
       <section id="included" className="mx-auto max-w-6xl scroll-mt-32 px-5 py-16 sm:px-8">

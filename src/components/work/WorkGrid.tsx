@@ -39,6 +39,7 @@ export function WorkGrid({ projects }: { projects: CaseStudy[] }) {
                 <div className="h-56 overflow-hidden rounded-2xl">{projectArt(project.slug)}</div>
                 <h2 className="mt-4 font-sans text-base font-semibold text-ink group-hover:text-plum">{project.title}</h2>
                 <p className="mt-1 text-sm text-muted">{project.cardLabel}</p>
+                {project.result ? <p className="mt-2 text-sm leading-6 text-ink-soft">{project.result}</p> : null}
                 <p className="mt-2 text-xs tracking-wide text-rose uppercase">{project.tags.join(" · ")}</p>
               </Link>
             </li>

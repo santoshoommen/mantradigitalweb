@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 function Plant({ className = "" }: { className?: string }) {
   return (
@@ -46,6 +47,21 @@ export function HeroDevices() {
           />
         </div>
       </div>
+
+      <Link
+        href="/work/chiltern-wellbeing"
+        data-cta="true"
+        data-cta-location="hero-chiltern"
+        className="absolute top-[12.25rem] left-3 z-20 w-[11.75rem] rounded-2xl bg-white/95 p-3.5 shadow-[0_16px_40px_rgba(32,40,56,0.18)] ring-1 ring-black/5 sm:top-[18.25rem] sm:left-6 sm:w-64"
+      >
+        <blockquote className="font-serif text-base leading-tight text-ink sm:text-lg">
+          “Highest new-patient numbers since we opened”
+        </blockquote>
+        <p className="mt-2 text-[11px] leading-4 text-muted sm:text-xs">
+          Funmi Obi — CEO
+          <span className="block">Chiltern Wellbeing Clinic</span>
+        </p>
+      </Link>
 
       <div className="absolute bottom-2 left-2 flex items-end gap-1 text-plum sm:bottom-4 sm:left-6">
         <p className="font-script text-[1.65rem] leading-none">

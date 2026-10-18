@@ -5,7 +5,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs, ClosingCta } from "@/components/ui/Page";
 import { ChilternCaseHero, CookLocalCaseHero, OnlineArtzCaseHero, projectArt } from "@/components/visuals/Scenes";
 import { loadCaseStudies, loadServices } from "@/lib/cms";
-import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { ChilternLetter } from "@/components/work/ChilternStory";
+import { chilternStory } from "@/lib/content";
+import { breadcrumbJsonLd, pageMetadata, reviewJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const studies = await loadCaseStudies();
@@ -36,11 +38,24 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     <>
       <TrackView name="portfolio_case_view" slug={study.slug} />
       <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Our work", path: "/work" },
-          { name: study.title, path: `/work/${study.slug}` },
-        ])}
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Our work", path: "/work" },
+            { name: study.title, path: `/work/${study.slug}` },
+          ]),
+          ...(study.slug === "chiltern-wellbeing"
+            ? [
+                reviewJsonLd({
+                  body: chilternStory.letter.join("\n\n"),
+                  author: chilternStory.name,
+                  jobTitle: chilternStory.role,
+                  itemName: "Chiltern Wellbeing website",
+                  path: "/work/chiltern-wellbeing",
+                }),
+              ]
+            : []),
+        ]}
       />
       <article>
         {study.slug === "chiltern-wellbeing" ? (
@@ -77,6 +92,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <p className="mt-3 text-sm leading-7 text-ink-soft">{study.approach}</p>
           <h2 className="mt-8 font-serif text-2xl">The solution</h2>
           <p className="mt-3 text-sm leading-7 text-ink-soft">{study.solution}</p>
+          {study.slug === "chiltern-wellbeing" ? <ChilternLetter /> : null}
           {related.length > 0 ? (
             <p className="mt-6 text-sm text-ink-soft">
               Related services:{" "}

@@ -3,6 +3,7 @@ import { Button, TextLink } from "@/components/ui/Button";
 import { FeatureIcon, IconCheck } from "@/components/ui/Icons";
 import { CommercialDisclosure, PricingCards, TrustRow } from "@/components/pricing/PricingCards";
 import { HeroDevices, PartnerScene, StillLife, projectArt } from "@/components/visuals/Scenes";
+import { ChilternHomeStory } from "@/components/work/ChilternStory";
 import { homeFeatures, homeProcess, onlyPublished, caseStudies, partnerPoints } from "@/lib/content";
 
 export function HomePage() {
@@ -129,6 +130,7 @@ export function HomePage() {
                     <div>
                       <h3 className="font-sans text-base font-semibold text-ink group-hover:text-plum">{project.title}</h3>
                       <p className="mt-1 text-sm text-muted">{project.cardLabel}</p>
+                      {project.result ? <p className="mt-2 text-sm leading-6 text-ink-soft">{project.result}</p> : null}
                     </div>
                     <span aria-hidden className="mt-1 text-plum">
                       →
@@ -140,6 +142,8 @@ export function HomePage() {
           </ul>
         </div>
       </section>
+
+      <ChilternHomeStory />
 
       <section className="bg-blush py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">

@@ -1,5 +1,6 @@
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs, ClosingCta, PageHero } from "@/components/ui/Page";
+import { ClientQuote } from "@/components/work/ChilternStory";
 import { fullProcess } from "@/lib/content";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -43,6 +44,14 @@ export default function ProcessPage() {
           </li>
         ))}
       </ol>
+      <section className="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+        <p className="text-sm leading-7 text-ink-soft">
+          At Chiltern Wellbeing, that first conversation was about the clinic, the team and the patients the founder wanted to attract.
+        </p>
+        <div className="mt-6">
+          <ClientQuote quote="In our opening meeting, he took the time to understand our clinic, our team and our goals, including my aim of attracting our ideal patient." />
+        </div>
+      </section>
       <section className="bg-blush py-16">
         <div className="mx-auto grid max-w-6xl gap-8 px-5 sm:px-8 md:grid-cols-2">
           <div>

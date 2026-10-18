@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Page";
+import { ClientQuote } from "@/components/work/ChilternStory";
+import { chilternStory } from "@/lib/content";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -37,6 +39,9 @@ export default async function ContactPage({
           <p className="mt-4 text-sm leading-6 text-muted">
             Managed websites are £99, £199 or £399 a month, excluding VAT, with a 12-month initial commitment and no upfront development fee. Bespoke work is quoted. Full terms are shared before any agreement.
           </p>
+          <div className="mt-8">
+            <ClientQuote quote={chilternStory.quotes.recommend} />
+          </div>
         </div>
         <Suspense fallback={<p className="text-sm text-muted">Loading the form…</p>}>
           <ContactForm initialPlan={params.plan} />
