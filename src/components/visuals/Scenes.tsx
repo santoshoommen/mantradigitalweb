@@ -59,7 +59,7 @@ export function HeroDevices() {
         </blockquote>
         <p className="mt-2 text-[11px] leading-4 text-muted sm:text-xs">
           Funmi Obi — CEO
-          <span className="block">Chiltern Wellbeing Clinic</span>
+          <span className="block">Chiltern Wellbeing Foot and Ankle Clinic</span>
         </p>
       </Link>
 
