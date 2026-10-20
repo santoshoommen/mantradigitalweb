@@ -4,9 +4,25 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Page";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
+const studioEmail = "support@mantradigital.org";
+
 function paragraphWithLinks(text: string): ReactNode {
   const cookie = "cookie page";
   const google = "policies.google.com/technologies/partner-sites";
+  if (text.includes(studioEmail)) {
+    const [before, after] = text.split(studioEmail);
+    return (
+      <>
+        {before}
+        <span
+          dangerouslySetInnerHTML={{
+            __html: `<!--email_off-->${studioEmail}<!--/email_off-->`,
+          }}
+        />
+        {paragraphWithLinks(after)}
+      </>
+    );
+  }
   if (text.includes(cookie)) {
     const [before, after] = text.split(cookie);
     return (
