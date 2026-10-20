@@ -11,9 +11,20 @@ const areaServed = [
   { "@type": "AdministrativeArea", name: "Buckinghamshire" },
 ];
 
+export const productionSiteUrl = "https://www.mantradigital.org";
+
+export function resolveSiteUrl(nodeEnv: string | undefined, configured: string | undefined) {
+  const value = configured?.trim().replace(/\/$/, "") ?? "";
+  const local = value.length === 0 || /localhost|127\.0\.0\.1/.test(value);
+  if (nodeEnv === "development" && local) return "http://localhost:3000";
+  if (local || value === "https://mantradigital.org" || value === "http://mantradigital.org") {
+    return productionSiteUrl;
+  }
+  return value;
+}
+
 export function getSiteUrl() {
-  const raw = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  return raw.replace(/\/$/, "");
+  return resolveSiteUrl(process.env.NODE_ENV, process.env.NEXT_PUBLIC_SITE_URL);
 }
 
 export function pageMetadata({

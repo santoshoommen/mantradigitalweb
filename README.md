@@ -29,7 +29,7 @@ Copy `.env.example` to `.env.local`.
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical URL, sitemap, structured data |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL, sitemap and structured data. Production is `https://www.mantradigital.org` |
 | `NEXT_PUBLIC_GA_ID` | GA4. Loaded only after the visitor accepts analytics |
 | `SANITY_PROJECT_ID`, `SANITY_DATASET` | Optional CMS. Blank uses seeded content |
 | `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `CONTACT_TO_EMAIL` | Enquiry and newsletter email |

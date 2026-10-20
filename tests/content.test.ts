@@ -11,7 +11,7 @@ import {
   planEnquiryHref,
   plans,
 } from "@/lib/content";
-import { defaultDescription } from "@/lib/seo";
+import { defaultDescription, productionSiteUrl, resolveSiteUrl } from "@/lib/seo";
 import { llmsTxt } from "@/lib/llms";
 
 describe("pricing", () => {
@@ -110,6 +110,16 @@ describe("chiltern account", () => {
     const chiltern = caseStudies.find((item) => item.slug === "chiltern-wellbeing");
     expect(chiltern?.solution).toMatch(/not a forecast/);
     expect(chiltern?.solution).not.toMatch(/\d+%/);
+  });
+});
+
+describe("site url", () => {
+  it("keeps localhost out of production robots and sitemap addresses", () => {
+    expect(productionSiteUrl).toBe("https://www.mantradigital.org");
+    expect(resolveSiteUrl("production", "http://localhost:3000")).toBe(productionSiteUrl);
+    expect(resolveSiteUrl("production", "https://mantradigital.org")).toBe(productionSiteUrl);
+    expect(resolveSiteUrl("production", undefined)).toBe(productionSiteUrl);
+    expect(resolveSiteUrl("development", "http://localhost:3000")).toBe("http://localhost:3000");
   });
 });
 
